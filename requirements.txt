@@ -1,0 +1,4 @@
+allennlp==1.0.0
+allennlp_models==1.0.0
+flair # 0.7 needed for chunking
+datasets
