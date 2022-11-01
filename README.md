@@ -6,7 +6,7 @@ This repository contains code and data for EMNLP 2022 paper [Correcting Diverse 
 
 All training data and pretrained models can be found here: https://drive.google.com/drive/folders/1VeALcCBLIx0H3VQF2_pEJJ5ieQWtEpo9?usp=sharing
 
-Check out [scripts/]() for various training, inference and evaluations scripts.
+Check out [scripts/](scripts/) for various training, inference and evaluations scripts.
 
 ## Training Infilling Model
 
