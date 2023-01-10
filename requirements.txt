@@ -1,4 +1,5 @@
 allennlp==1.0.0
 allennlp_models==1.0.0
 flair # 0.7 needed for chunking
-datasets
+spacy==2.2.4
+datasets=1.16.1
