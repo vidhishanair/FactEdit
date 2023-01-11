@@ -363,8 +363,10 @@ if __name__ == '__main__':
                         for idx1, source_sent in enumerate(filtered_source_sents[0:6]):
                             if " "+arg0_span["text"]+" " in source_sent:
                                 select_idxs.append(idx1)
-                                masked_sent = source_sent.replace(" "+arg0_span["tokenized_text"]+" ", " <mask> ")
-                                if "<mask>" not in masked_sent:
+                                masked_sent = source_sent.replace(" "+arg0_span["tokenized_text"]+" ", " [blank] ")
+                                if "[blank]" not in masked_sent:
+                                    continue
+                                if masked_sent.count("[blank]") > 1:
                                     continue
                                 target = arg0_span["tokenized_text"]
                                 source = " ".join([x for i, x in enumerate(source_sents) if i != idx1]) #+ " <sep> " + masked_sent
@@ -375,8 +377,10 @@ if __name__ == '__main__':
                         for idx1, source_sent in enumerate(filtered_source_sents[0:6]):
                             if " "+arg1_span["text"]+" " in source_sent:
                                 select_idxs.append(idx1)
-                                masked_sent = source_sent.replace(" "+arg1_span["tokenized_text"]+" ", " <mask> ")
-                                if "<mask>" not in masked_sent:
+                                masked_sent = source_sent.replace(" "+arg1_span["tokenized_text"]+" ", " [blank] ")
+                                if "[blank]" not in masked_sent:
+                                    continue
+                                if masked_sent.count("[blank]") > 1:
                                     continue
                                 target = arg1_span["tokenized_text"]
                                 source = " ".join([x for i, x in enumerate(source_sents) if i != idx1]) #+ " <sep> " + masked_sent
@@ -387,8 +391,10 @@ if __name__ == '__main__':
                         for idx1, source_sent in enumerate(filtered_source_sents[0:6]):
                             if " "+verb_span["text"]+" " in source_sent:
                                 select_idxs.append(idx1)
-                                masked_sent = source_sent.replace(" "+verb_span["tokenized_text"]+" ", " <mask> ")
-                                if "<mask>" not in masked_sent:
+                                masked_sent = source_sent.replace(" "+verb_span["tokenized_text"]+" ", " [blank] ")
+                                if "[blank]" not in masked_sent:
+                                    continue
+                                if masked_sent.count("[blank]") > 1:
                                     continue
                                 target = verb_span["tokenized_text"]
                                 source = " ".join([x for i, x in enumerate(source_sents) if i != idx1]) #+ " <sep> " + masked_sent
@@ -414,6 +420,8 @@ if __name__ == '__main__':
                     for span in spans:
                         masked_sent = summary_sent.replace(" "+span["tokenized_text"]+" ", " [blank] ")
                         if "[blank]" not in masked_sent:
+                            continue
+                        if masked_sent.count("[blank]") > 1:
                             continue
                         #masked_sent = summary_sent[0:span["start_pos"]] \
                         #              + "[blank]" \
