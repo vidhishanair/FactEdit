@@ -1,4 +1,3 @@
-# FactEdit - Post-Editing Factual Errors in Generated Summaries
 
 This repository contains code and data for EMNLP 2022 paper [Correcting Diverse Factual Errors in Abstractive Summarization via Post-Editing and Language Model Infilling](https://arxiv.org/abs/2210.12378) work with Hannaneh Hajishirzi, William Cohen and Yulia Tsvetkov.
 
